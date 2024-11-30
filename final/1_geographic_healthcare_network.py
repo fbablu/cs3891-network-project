@@ -30,7 +30,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats
 
-# State geographical positions (approximate Albers projection coordinates)
+# Dictionary mapping states to their approximate geographic coordinates using Albers projection
+# Format: 'STATE': (x_coordinate, y_coordinate) where coordinates are normalized between 0 and 1
+# The coordinates preserve relative positioning while allowing for an aesthetically pleasing visualization
 STATE_POSITIONS = {
     'ME': (0.85, 0.85), 'NH': (0.82, 0.8), 'VT': (0.78, 0.8), 'MA': (0.82, 0.75),
     'RI': (0.85, 0.73), 'CT': (0.81, 0.71), 'NY': (0.75, 0.7), 'NJ': (0.78, 0.65),
@@ -47,7 +49,8 @@ STATE_POSITIONS = {
     'AK': (0.15, 0.15), 'HI': (0.25, 0.15)
 }
 
-# Define US regions
+# Classification of US states into four major census regions
+# This grouping enables regional analysis and color-coding in visualizations
 US_REGIONS = {
     'Northeast': ['ME', 'NH', 'VT', 'MA', 'RI', 'CT', 'NY', 'NJ', 'PA'],
     'Midwest': ['OH', 'IN', 'IL', 'MI', 'WI', 'MN', 'IA', 'MO', 'ND', 'SD', 'NE', 'KS'],
@@ -55,7 +58,8 @@ US_REGIONS = {
     'West': ['MT', 'ID', 'WY', 'CO', 'NM', 'AZ', 'UT', 'NV', 'WA', 'OR', 'CA', 'AK', 'HI']
 }
 
-# Updated color scheme with more distinct colors
+# Color scheme for regional visualization
+# Selected for optimal contrast and colorblind-friendly distinction
 REGION_COLORS = {
     'Northeast': '#D55E00',  # Dark orange
     'Midwest': '#009E73',    # Dark green
@@ -64,12 +68,33 @@ REGION_COLORS = {
 }
 
 def get_state_region(state_code):
+    """
+    Determine the census region for a given state code.
+    
+    Args:
+        state_code (str): Two-letter state code (e.g., 'CA' for California)
+        
+    Returns:
+        str: Census region name or 'Unknown' if state not found
+    """
     for region, states in US_REGIONS.items():
         if state_code in states:
             return region
     return 'Unknown'
 
 def load_and_process_data():
+    """
+    Load and preprocess healthcare data from CSV files.
+    
+    Loads provider and spending data, aggregates by state (averaging across years),
+    and merges the datasets into a single DataFrame.
+    
+    Returns:
+        pd.DataFrame: Merged dataset with columns:
+            - region_code: State code
+            - providers_per_100k: Average healthcare providers per 100k population
+            - hospital_expenditure: Average hospital direct expenditure
+    """
     providers_df = pd.read_csv('FINAL_providers.csv')
     spending_df = pd.read_csv('FINAL_spending.csv')
     
@@ -86,11 +111,26 @@ def load_and_process_data():
     return merged_df
 
 def calculate_balance_metric(df):
+    """
+    Calculate similarity/balance matrix between states based on healthcare metrics.
+    
+    Uses normalized differences in provider density and hospital expenditure to compute
+    a balance score between each pair of states. Higher scores indicate more similar
+    healthcare profiles.
+    
+    Args:
+        df (pd.DataFrame): Processed healthcare data
+        
+    Returns:
+        tuple: (balance_matrix, states)
+            - balance_matrix (np.array): Matrix of balance scores between states
+            - states (np.array): Array of state codes in same order as matrix
+    """
     states = df['region_code'].values
     n_states = len(states)
     balance_matrix = np.zeros((n_states, n_states))
     
-    # Normalize the data
+    # Normalize the data for fair comparison
     providers_norm = (df['providers_per_100k'] - df['providers_per_100k'].mean()) / df['providers_per_100k'].std()
     spending_norm = (df['hospital_expenditure'] - df['hospital_expenditure'].mean()) / df['hospital_expenditure'].std()
     
@@ -99,16 +139,27 @@ def calculate_balance_metric(df):
             if i != j:
                 provider_diff = abs(providers_norm.iloc[i] - providers_norm.iloc[j])
                 spending_diff = abs(spending_norm.iloc[i] - spending_norm.iloc[j])
-                # Enhanced contrast in balance score
-                balance = (1 / (1 + abs(provider_diff - spending_diff))) ** 1.5  # Exponent increases contrast
+                # Enhanced contrast in balance score with exponential scaling
+                balance = (1 / (1 + abs(provider_diff - spending_diff))) ** 1.5
                 balance_matrix[i, j] = balance
     
     return balance_matrix, states
 
 def create_network(balance_matrix, states, threshold=0.7):
+    """
+    Create a NetworkX graph representing healthcare relationships between states.
+    
+    Args:
+        balance_matrix (np.array): Matrix of balance scores between states
+        states (np.array): Array of state codes
+        threshold (float): Minimum balance score to create an edge (default: 0.7)
+        
+    Returns:
+        nx.Graph: Network with nodes as states and edges representing healthcare similarity
+    """
     G = nx.Graph()
     
-    # Add nodes with positions
+    # Add nodes with positions and regional attributes
     for state in states:
         G.add_node(state, 
                   region=get_state_region(state),
@@ -126,17 +177,32 @@ def create_network(balance_matrix, states, threshold=0.7):
     return G
 
 def calculate_node_sizes(G):
+    """
+    Calculate node sizes based on network centrality metrics.
+    
+    Combines degree and betweenness centrality with weighted importance to determine
+    node sizes for visualization.
+    
+    Args:
+        G (nx.Graph): Healthcare network graph
+        
+    Returns:
+        tuple: (scaled_sizes, degree_cent, between_cent)
+            - scaled_sizes (dict): Node sizes scaled for visualization
+            - degree_cent (dict): Degree centrality scores
+            - between_cent (dict): Betweenness centrality scores
+    """
     # Calculate both degree and betweenness centrality
     degree_cent = nx.degree_centrality(G)
     between_cent = nx.betweenness_centrality(G)
     
-    # Combine the centrality measures with weights
+    # Combine centrality measures with weights
     node_importance = {}
     for node in G.nodes():
         # Weight degree centrality more heavily (0.7) than betweenness (0.3)
         node_importance[node] = 0.7 * degree_cent[node] + 0.3 * between_cent[node]
     
-    # Scale the sizes more dramatically (base size 500, max size 2500)
+    # Scale sizes for visualization (base: 500, max: 2500)
     min_importance = min(node_importance.values())
     max_importance = max(node_importance.values())
     scaled_sizes = {node: 500 + (2000 * (imp - min_importance) / (max_importance - min_importance))
@@ -145,6 +211,19 @@ def calculate_node_sizes(G):
     return scaled_sizes, degree_cent, between_cent
 
 def visualize_network(G):
+    """
+    Create and save a geographic visualization of the healthcare network.
+    
+    Generates a figure showing states as nodes positioned geographically, with
+    edges representing healthcare similarity relationships. Node sizes indicate
+    network centrality, colors indicate regions, and edge darkness shows relationship strength.
+    
+    Args:
+        G (nx.Graph): Healthcare network graph
+        
+    Returns:
+        tuple: (degree_cent, between_cent) - Centrality measures for analysis
+    """
     fig = plt.figure(figsize=(20, 15))
     ax_network = fig.add_axes([0.1, 0.1, 0.7, 0.8])
     
@@ -217,20 +296,32 @@ def visualize_network(G):
     plt.savefig('healthcare_geo_network_with_centrality.png', dpi=300, bbox_inches='tight')
     plt.close()
     
-    # Return centrality metrics for analysis
     return degree_cent, between_cent
 
 def analyze_balance_patterns(G):
+    """
+    Analyze healthcare balance patterns within regions.
+    
+    Calculates statistics about healthcare similarity relationships within each
+    census region, including connection counts and average balance scores.
+    
+    Args:
+        G (nx.Graph): Healthcare network graph
+        
+    Returns:
+        dict: Statistics for each region including connection counts and average balance scores
+    """
     region_stats = {region: {'count': 0, 'avg_balance': 0.0} for region in US_REGIONS.keys()}
     
     for u, v, data in G.edges(data=True):
         region1 = G.nodes[u]['region']
         region2 = G.nodes[v]['region']
         
-        if region1 == region2:
+        if region1 == region2:  # Count only intra-region connections
             region_stats[region1]['count'] += 1
             region_stats[region1]['avg_balance'] += data['balance_score']
     
+    # Calculate averages for regions with connections
     for region in region_stats:
         if region_stats[region]['count'] > 0:
             region_stats[region]['avg_balance'] /= region_stats[region]['count']
@@ -239,21 +330,40 @@ def analyze_balance_patterns(G):
 
 
 def main():
+    """
+    Execute the complete healthcare network analysis pipeline.
+    
+    This function orchestrates the entire analysis process:
+    1. Loads and processes the healthcare data
+    2. Calculates balance metrics between states
+    3. Creates and visualizes the network
+    4. Performs centrality analysis
+    5. Analyzes regional patterns
+    6. Prints comprehensive analysis results
+    
+    The function serves as both the entry point for the analysis and a demonstration
+    of the proper sequence for using the module's components.
+    """
+    # Load and prepare the data
     merged_df = load_and_process_data()
+    
+    # Calculate similarity metrics and create network
     balance_matrix, states = calculate_balance_metric(merged_df)
     G = create_network(balance_matrix, states)
+    
+    # Calculate network metrics
     node_sizes, degree_cent, between_cent = calculate_node_sizes(G)
     visualize_network(G)
     
-    # Calculate combined centrality scores
+    # Calculate combined centrality scores (weighted average of degree and betweenness)
     combined_centrality = {}
     for node in G.nodes():
         combined_centrality[node] = 0.7 * degree_cent[node] + 0.3 * between_cent[node]
     
-    # Sort states by centrality
+    # Sort states by centrality for ranking
     sorted_states = sorted(combined_centrality.items(), key=lambda x: x[1], reverse=True)
     
-    # Print top 5 and bottom 5 central states
+    # Print centrality analysis results
     print("\nTop 5 Most Central States:")
     for state, score in sorted_states[:5]:
         print(f"{state}: {score:.3f} (Region: {get_state_region(state)})")
@@ -262,6 +372,7 @@ def main():
     for state, score in sorted_states[-5:]:
         print(f"{state}: {score:.3f} (Region: {get_state_region(state)})")
     
+    # Analyze and print regional patterns
     region_stats = analyze_balance_patterns(G)
     
     print("\nRegional Balance Analysis:")
@@ -270,6 +381,7 @@ def main():
         print(f"Number of internal connections: {stats['count']}")
         print(f"Average balance score: {stats['avg_balance']:.3f}")
     
+    # Print overall network statistics
     print("\nNetwork Summary:")
     print(f"Total number of states: {G.number_of_nodes()}")
     print(f"Total number of connections: {G.number_of_edges()}")
@@ -279,3 +391,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+        
