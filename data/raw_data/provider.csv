@@ -1,0 +1,151 @@
+region,region_code,period,total_provider_types
+Alabama,AL,2011,27480
+Alabama,AL,2012,28123
+Alabama,AL,2013,27098
+Alaska,AK,2011,5816
+Alaska,AK,2012,5954
+Alaska,AK,2013,6066
+Arizona,AZ,2011,40856
+Arizona,AZ,2012,42296
+Arizona,AZ,2013,40756
+Arkansas,AR,2011,15952
+Arkansas,AR,2012,16625
+Arkansas,AR,2013,15984
+California,CA,2011,217822
+California,CA,2012,226344
+California,CA,2013,215495
+Colorado,CO,2011,35168
+Colorado,CO,2012,36497
+Colorado,CO,2013,35297
+Connecticut,CT,2011,29221
+Connecticut,CT,2012,30050
+Connecticut,CT,2013,30135
+Delaware,DE,2011,6450
+Delaware,DE,2012,6846
+Delaware,DE,2013,6851
+Florida,FL,2011,126002
+Florida,FL,2012,131373
+Florida,FL,2013,128192
+Georgia,GA,2011,55400
+Georgia,GA,2012,58239
+Georgia,GA,2013,58258
+Hawaii,HI,2011,8212
+Hawaii,HI,2012,8504
+Hawaii,HI,2013,8340
+Idaho,ID,2011,10420
+Idaho,ID,2012,10861
+Idaho,ID,2013,10521
+Illinois,IL,2011,79438
+Illinois,IL,2012,81910
+Illinois,IL,2013,79800
+Indiana,IN,2011,41058
+Indiana,IN,2012,42182
+Indiana,IN,2013,42235
+Iowa,IA,2011,18713
+Iowa,IA,2012,19533
+Iowa,IA,2013,19665
+Kansas,KS,2011,19312
+Kansas,KS,2012,19659
+Kansas,KS,2013,19193
+Kentucky,KY,2011,29231
+Kentucky,KY,2012,30847
+Kentucky,KY,2013,30368
+Louisiana,LA,2011,28008
+Louisiana,LA,2012,29579
+Louisiana,LA,2013,29204
+Maine,ME,2011,11854
+Maine,ME,2012,12220
+Maine,ME,2013,11823
+Maryland,MD,2011,40606
+Maryland,MD,2012,43206
+Maryland,MD,2013,41952
+Massachusetts,MA,2011,57264
+Massachusetts,MA,2012,60107
+Massachusetts,MA,2013,59973
+Michigan,MI,2011,67774
+Michigan,MI,2012,69292
+Michigan,MI,2013,67647
+Minnesota,MN,2011,37535
+Minnesota,MN,2012,38598
+Minnesota,MN,2013,37047
+Mississippi,MS,2011,17405
+Mississippi,MS,2012,17550
+Mississippi,MS,2013,17725
+Missouri,MO,2011,38928
+Missouri,MO,2012,40919
+Missouri,MO,2013,41032
+Montana,MT,2011,7316
+Montana,MT,2012,7518
+Montana,MT,2013,7342
+Nebraska,NE,2011,13928
+Nebraska,NE,2012,14296
+Nebraska,NE,2013,14120
+Nevada,NV,2011,14160
+Nevada,NV,2012,14416
+Nevada,NV,2013,13680
+New Hampshire,NH,2011,10681
+New Hampshire,NH,2012,11128
+New Hampshire,NH,2013,10533
+New Jersey,NJ,2011,60598
+New Jersey,NJ,2012,61982
+New Jersey,NJ,2013,61726
+New Mexico,NM,2011,12632
+New Mexico,NM,2012,13180
+New Mexico,NM,2013,12363
+New York,NY,2011,153601
+New York,NY,2012,157644
+New York,NY,2013,152604
+North Carolina,NC,2011,63475
+North Carolina,NC,2012,66874
+North Carolina,NC,2013,66166
+North Dakota,ND,2011,5130
+North Dakota,ND,2012,5482
+North Dakota,ND,2013,5337
+Ohio,OH,2011,74189
+Ohio,OH,2012,76896
+Ohio,OH,2013,75467
+Oklahoma,OK,2011,21337
+Oklahoma,OK,2012,22356
+Oklahoma,OK,2013,21678
+Oregon,OR,2011,27442
+Oregon,OR,2012,28566
+Oregon,OR,2013,27450
+Pennsylvania,PA,2011,96699
+Pennsylvania,PA,2012,99410
+Pennsylvania,PA,2013,97154
+Rhode Island,RI,2011,8452
+Rhode Island,RI,2012,8694
+Rhode Island,RI,2013,8430
+South Carolina,SC,2011,28678
+South Carolina,SC,2012,29424
+South Carolina,SC,2013,29293
+South Dakota,SD,2011,6142
+South Dakota,SD,2012,6366
+South Dakota,SD,2013,6259
+Tennessee,TN,2011,46264
+Tennessee,TN,2012,48518
+Tennessee,TN,2013,47445
+Texas,TX,2011,136083
+Texas,TX,2012,141817
+Texas,TX,2013,137997
+Utah,UT,2011,17309
+Utah,UT,2012,18052
+Utah,UT,2013,17425
+Vermont,VT,2011,5490
+Vermont,VT,2012,5688
+Vermont,VT,2013,5508
+Virginia,VA,2011,50950
+Virginia,VA,2012,53444
+Virginia,VA,2013,53112
+Washington,WA,2011,47796
+Washington,WA,2012,49546
+Washington,WA,2013,48173
+West Virginia,WV,2011,13515
+West Virginia,WV,2012,14163
+West Virginia,WV,2013,13537
+Wisconsin,WI,2011,40255
+Wisconsin,WI,2012,41171
+Wisconsin,WI,2013,39217
+Wyoming,WY,2011,3750
+Wyoming,WY,2012,3928
+Wyoming,WY,2013,3870

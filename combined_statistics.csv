@@ -1,0 +1,14 @@
+,Providers per 100k,Hospital Direct Expenditure
+Mean,687.76,228.32
+Std Dev,92.42,172.16
+Min,490.3,8.0
+Q1,620.33,74.75
+Median,681.27,166.0
+Q3,744.4,361.5
+Max,919.83,624.0
+Variance,8541.24,29637.35
+Range,429.53,616.0
+Sum of Squares,72224896.9,12235468.0
+CV (%),13.44,75.4
+Skewness,0.43,0.5
+Kurtosis,-0.18,-1.07

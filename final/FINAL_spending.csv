@@ -1,0 +1,151 @@
+region,region_code,period,(E058) Total Hospital-Dir Exp
+Alabama,AL,2011,353
+Alabama,AL,2012,342
+Alabama,AL,2013,376
+Alaska,AK,2011,94
+Alaska,AK,2012,82
+Alaska,AK,2013,96
+Arizona,AZ,2011,10
+Arizona,AZ,2012,126
+Arizona,AZ,2013,121
+Arkansas,AR,2011,351
+Arkansas,AR,2012,315
+Arkansas,AR,2013,312
+California,CA,2011,252
+California,CA,2012,270
+California,CA,2013,276
+Colorado,CO,2011,155
+Colorado,CO,2012,151
+Colorado,CO,2013,157
+Connecticut,CT,2011,489
+Connecticut,CT,2012,416
+Connecticut,CT,2013,408
+Delaware,DE,2011,69
+Delaware,DE,2012,131
+Delaware,DE,2013,122
+Florida,FL,2011,60
+Florida,FL,2012,59
+Florida,FL,2013,49
+Georgia,GA,2011,101
+Georgia,GA,2012,114
+Georgia,GA,2013,109
+Hawaii,HI,2011,580
+Hawaii,HI,2012,490
+Hawaii,HI,2013,499
+Idaho,ID,2011,34
+Idaho,ID,2012,67
+Idaho,ID,2013,69
+Illinois,IL,2011,120
+Illinois,IL,2012,66
+Illinois,IL,2013,86
+Indiana,IN,2011,33
+Indiana,IN,2012,27
+Indiana,IN,2013,26
+Iowa,IA,2011,426
+Iowa,IA,2012,565
+Iowa,IA,2013,556
+Kansas,KS,2011,515
+Kansas,KS,2012,576
+Kansas,KS,2013,624
+Kentucky,KY,2011,310
+Kentucky,KY,2012,357
+Kentucky,KY,2013,343
+Louisiana,LA,2011,580
+Louisiana,LA,2012,476
+Louisiana,LA,2013,462
+Maine,ME,2011,49
+Maine,ME,2012,131
+Maine,ME,2013,115
+Maryland,MD,2011,99
+Maryland,MD,2012,97
+Maryland,MD,2013,94
+Massachusetts,MA,2011,94
+Massachusetts,MA,2012,113
+Massachusetts,MA,2013,112
+Michigan,MI,2011,307
+Michigan,MI,2012,324
+Michigan,MI,2013,360
+Minnesota,MN,2011,65
+Minnesota,MN,2012,113
+Minnesota,MN,2013,55
+Mississippi,MS,2011,434
+Mississippi,MS,2012,416
+Mississippi,MS,2013,441
+Missouri,MO,2011,299
+Missouri,MO,2012,333
+Missouri,MO,2013,335
+Montana,MT,2011,58
+Montana,MT,2012,49
+Montana,MT,2013,51
+Nebraska,NE,2011,170
+Nebraska,NE,2012,164
+Nebraska,NE,2013,168
+Nevada,NV,2011,105
+Nevada,NV,2012,100
+Nevada,NV,2013,97
+New Hampshire,NH,2011,46
+New Hampshire,NH,2012,47
+New Hampshire,NH,2013,44
+New Jersey,NJ,2011,285
+New Jersey,NJ,2012,259
+New Jersey,NJ,2013,250
+New Mexico,NM,2011,533
+New Mexico,NM,2012,534
+New Mexico,NM,2013,529
+New York,NY,2011,376
+New York,NY,2012,378
+New York,NY,2013,277
+North Carolina,NC,2011,203
+North Carolina,NC,2012,77
+North Carolina,NC,2013,80
+North Dakota,ND,2011,117
+North Dakota,ND,2012,71
+North Dakota,ND,2013,73
+Ohio,OH,2011,277
+Ohio,OH,2012,259
+Ohio,OH,2013,265
+Oklahoma,OK,2011,90
+Oklahoma,OK,2012,74
+Oklahoma,OK,2013,70
+Oregon,OR,2011,507
+Oregon,OR,2012,459
+Oregon,OR,2013,456
+Pennsylvania,PA,2011,290
+Pennsylvania,PA,2012,277
+Pennsylvania,PA,2013,299
+Rhode Island,RI,2011,67
+Rhode Island,RI,2012,64
+Rhode Island,RI,2013,60
+South Carolina,SC,2011,382
+South Carolina,SC,2012,380
+South Carolina,SC,2013,352
+South Dakota,SD,2011,90
+South Dakota,SD,2012,31
+South Dakota,SD,2013,30
+Tennessee,TN,2011,78
+Tennessee,TN,2012,62
+Tennessee,TN,2013,60
+Texas,TX,2011,197
+Texas,TX,2012,251
+Texas,TX,2013,264
+Utah,UT,2011,409
+Utah,UT,2012,451
+Utah,UT,2013,484
+Vermont,VT,2011,39
+Vermont,VT,2012,33
+Vermont,VT,2013,10
+Virginia,VA,2011,483
+Virginia,VA,2012,487
+Virginia,VA,2013,506
+Washington,WA,2011,362
+Washington,WA,2012,369
+Washington,WA,2013,363
+West Virginia,WV,2011,78
+West Virginia,WV,2012,79
+West Virginia,WV,2013,79
+Wisconsin,WI,2011,250
+Wisconsin,WI,2012,319
+Wisconsin,WI,2013,345
+Wyoming,WY,2011,10
+Wyoming,WY,2012,13
+Wyoming,WY,2013,8

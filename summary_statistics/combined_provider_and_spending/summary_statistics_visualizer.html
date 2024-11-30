@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script defer src="https://pyscript.net/releases/2023.11.1/core.js"></script>
+    <style>
+        .stat-description {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        .table th {
+            background-color: #f8f9fa;
+        }
+        .discussion-section {
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 2rem;
+        }
+        .stat-highlight {
+            background-color: #e7f3fe;
+            border-left: 3px solid #1976d2;
+            padding: 0.5rem;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-4">
+    <h2 class="mb-4">Healthcare Statistics Analysis</h2>
+    
+    <!-- Statistics Table -->
+    <div class="table-responsive mb-4">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Statistic</th>
+                    <th>Providers per 100k</th>
+                    <th>Hospital Direct Expenditure ($)</th>
+                    <th>Interpretation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Mean</td>
+                    <td>687.76</td>
+                    <td>228.32</td>
+                    <td>Average values show typical provider density and spending levels. Provider density is more consistent.</td>
+                </tr>
+                <tr>
+                    <td>Std Dev</td>
+                    <td>92.42</td>
+                    <td>172.16</td>
+                    <td>Expenditure shows much higher variability relative to its mean compared to provider density.</td>
+                </tr>
+                <tr>
+                    <td>Min</td>
+                    <td>490.30</td>
+                    <td>8.00</td>
+                    <td>Extremely low minimum expenditure may indicate outliers or reporting differences.</td>
+                </tr>
+                <tr>
+                    <td>Q1</td>
+                    <td>620.33</td>
+                    <td>74.75</td>
+                    <td>Lower quartile shows baseline levels; expenditure has wider spread in lower values.</td>
+                </tr>
+                <tr>
+                    <td>Median</td>
+                    <td>681.27</td>
+                    <td>166.00</td>
+                    <td>Central values; expenditure median below mean indicates positive skew.</td>
+                </tr>
+                <tr>
+                    <td>Q3</td>
+                    <td>744.40</td>
+                    <td>361.50</td>
+                    <td>Upper quartile shows high-end typical values; large spread in expenditure.</td>
+                </tr>
+                <tr>
+                    <td>Max</td>
+                    <td>919.83</td>
+                    <td>624.00</td>
+                    <td>Maximum values show extremes; expenditure maximum is notably high relative to median.</td>
+                </tr>
+                <tr>
+                    <td>Variance</td>
+                    <td>8,541.24</td>
+                    <td>29,637.35</td>
+                    <td>Squared spread measure confirms much higher variability in expenditure.</td>
+                </tr>
+                <tr>
+                    <td>Range</td>
+                    <td>429.53</td>
+                    <td>616.00</td>
+                    <td>Total spread of values; expenditure shows wider relative range.</td>
+                </tr>
+                <tr>
+                    <td>CV (%)</td>
+                    <td>13.44</td>
+                    <td>75.40</td>
+                    <td>Relative variation measure shows expenditure is much more variable than provider density.</td>
+                </tr>
+                <tr>
+                    <td>Skewness</td>
+                    <td>0.43</td>
+                    <td>0.50</td>
+                    <td>Both slightly positively skewed, indicating some higher-than-typical values.</td>
+                </tr>
+                <tr>
+                    <td>Kurtosis</td>
+                    <td>-0.18</td>
+                    <td>-1.07</td>
+                    <td>Provider distribution near normal; expenditure shows flatter distribution with more extreme values.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Discussion Points -->
+    <div class="discussion-section">
+        <h4>Key Discussion Points for Report</h4>
+        
+        <div class="stat-highlight">
+            <h5>1. Distribution Characteristics</h5>
+            <p>- Provider distribution is nearly normal (kurtosis -0.18)<br>
+               - Expenditure distribution is notably flat (kurtosis -1.07)<br>
+               - Both show slight positive skew (0.43 and 0.50)</p>
+        </div>
+
+        <div class="stat-highlight">
+            <h5>2. Regional Disparities</h5>
+            <p>- Provider density varies moderately (CV 13.44%)<br>
+               - Expenditure shows extreme variation (CV 75.40%)<br>
+               - Range of expenditure ($616) suggests significant regional differences</p>
+        </div>
+
+        <div class="stat-highlight">
+            <h5>3. Outliers and Extremes</h5>
+            <p>- Minimum expenditure ($8.00) requires investigation<br>
+               - Maximum expenditure ($624.00) is 3.8x the median<br>
+               - Provider density shows more consistent distribution</p>
+        </div>
+
+        <div class="stat-highlight">
+            <h5>4. Policy Implications</h5>
+            <p>- Provider distribution suggests effective regulatory standardization<br>
+               - Wide expenditure variation indicates different regional approaches<br>
+               - Potential need for spending standardization policies</p>
+        </div>
+
+        <div class="stat-highlight">
+            <h5>5. Statistical Relationships</h5>
+            <p>- Different CV values suggest independent determining factors<br>
+               - Expenditure shows more complex distribution patterns<br>
+               - Provider distribution more predictable than spending</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
