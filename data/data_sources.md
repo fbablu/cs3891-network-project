@@ -52,5 +52,3 @@ providers_per_100k = (total_provider_types / population) * 100000
 #### aggregated_state_data.csv
 - State-level provider type summaries
 - Used for detailed statistical analysis
-
-This pipeline creates a comprehensive dataset linking healthcare provider distribution with government healthcare spending across US states for the years 2011-2013.
