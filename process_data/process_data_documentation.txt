@@ -1,0 +1,13 @@
+Provider Data Transformation Scripts
+
+1_format_provider_grouping.py:
+Transforms raw provider data by aggregating different provider types.
+- Sums up various provider categories
+- Creates consolidated provider counts
+- Formats data for network analysis
+
+2_format_provider_percapita.py:
+Calculates per capita provider metrics using population data.
+- Merges provider counts with population data
+- Calculates providers per 100,000 population
+- Generates summary statistics for provider density

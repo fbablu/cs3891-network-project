@@ -1,3 +1,25 @@
+"""
+Healthcare Data Summary Statistics Calculator
+
+This module calculates comprehensive summary statistics for healthcare provider and
+spending data. It processes CSV files containing healthcare metrics and generates
+detailed statistical analysis.
+
+Features:
+- Loads and processes healthcare data from CSV files
+- Calculates comprehensive summary statistics
+- Handles both provider and spending metrics
+- Generates combined statistical reports
+
+Functions:
+    load_data: Loads and prepares data from CSV files
+    calculate_statistics: Computes comprehensive summary statistics
+    main: Orchestrates the statistical analysis process
+
+Usage:
+    Run this script directly to generate summary statistics for healthcare data.
+    Results are saved to 'combined_statistics.csv'.
+"""
 import pandas as pd
 import numpy as np
 from pathlib import Path

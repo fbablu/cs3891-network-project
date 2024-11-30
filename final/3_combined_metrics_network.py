@@ -1,3 +1,28 @@
+"""
+Network Analysis for Healthcare Provider and Spending Data
+
+This module performs network analysis on healthcare provider and spending data across US states.
+It creates and visualizes a network where nodes represent states and edges represent similarities
+in healthcare metrics between states.
+
+Key Features:
+- Creates a network based on provider and spending similarities between states
+- Visualizes the network with node sizes based on centrality
+- Colors nodes by geographic region
+- Analyzes balance patterns and centrality metrics
+- Provides detailed statistics about network relationships
+
+Dependencies:
+    - matplotlib
+    - pandas
+    - networkx
+    - numpy
+    - scipy
+
+Constants:
+    US_REGIONS (dict): Mapping of US regions to their constituent states
+    REGION_COLORS (dict): Color scheme for different US regions
+"""
 from matplotlib.colors import LinearSegmentedColormap
 import pandas as pd
 import networkx as nx

@@ -1,12 +1,39 @@
+"""
+Clustered Healthcare Network Analysis
+
+This module implements a clustered network analysis approach to understand healthcare
+provider and spending patterns across US states. It uses community detection and
+advanced visualization techniques to identify and display healthcare metric clusters.
+
+Key Features:
+- Implements community detection for healthcare metrics
+- Provides enhanced visualization of network clusters
+- Calculates detailed cluster statistics
+- Analyzes inter-cluster relationships
+
+Dependencies:
+    - pandas
+    - networkx 
+    - matplotlib
+    - numpy
+    - scipy
+    - python-louvain (community)
+
+Design Notes:
+- Uses Louvain community detection
+- Implements custom balance metrics
+- Provides detailed cluster analysis
+"""
+
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats
 from matplotlib.colors import LinearSegmentedColormap
-from community import community_louvain
+import community.community_louvain as community_louvain
 
-# Define US regions
+
 US_REGIONS = {
     'Northeast': ['ME', 'NH', 'VT', 'MA', 'RI', 'CT', 'NY', 'NJ', 'PA'],
     'Midwest': ['OH', 'IN', 'IL', 'MI', 'WI', 'MN', 'IA', 'MO', 'ND', 'SD', 'NE', 'KS'],
@@ -14,7 +41,6 @@ US_REGIONS = {
     'West': ['MT', 'ID', 'WY', 'CO', 'NM', 'AZ', 'UT', 'NV', 'WA', 'OR', 'CA', 'AK', 'HI']
 }
 
-# Define colors for each region
 REGION_COLORS = {
     'Northeast': '#D55E00',  # Dark orange
     'Midwest': '#009E73',    # Dark green

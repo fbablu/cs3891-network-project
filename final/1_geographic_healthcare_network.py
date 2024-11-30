@@ -1,3 +1,29 @@
+"""
+Geographic Healthcare Network Analysis
+
+This module creates a geographically-aware network visualization of healthcare metrics
+across US states. It positions nodes (states) according to their approximate geographic
+locations while showing relationships between healthcare metrics.
+
+Key Features:
+- Uses geographic positioning for nodes based on Albers projection
+- Visualizes healthcare relationships with geographic context
+- Provides regional analysis of healthcare patterns
+- Includes detailed centrality metrics
+
+Dependencies:
+    - pandas
+    - networkx
+    - matplotlib
+    - numpy
+    - scipy
+
+Notable Components:
+    STATE_POSITIONS (dict): Geographic coordinates for each state
+    US_REGIONS (dict): Regional grouping of states
+    REGION_COLORS (dict): Color scheme for different regions
+"""
+
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
