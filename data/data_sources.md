@@ -51,4 +51,4 @@ providers_per_100k = (total_provider_types / population) * 100000
 
 #### aggregated_state_data.csv
 - State-level provider type summaries
-- Used for detailed statistical analysis
+- Used for detailed statistical analysis`
