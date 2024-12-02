@@ -427,7 +427,7 @@ def visualize_network(G):
     ax_network.axis('off')
     
     # Save high-resolution figure
-    plt.savefig('healthcare_combined_network.png', dpi=400, bbox_inches='tight')
+    plt.savefig('healthcare_combined_network.png', dpi=300, bbox_inches='tight')
     plt.close()
 
 def analyze_balance_patterns(G):
