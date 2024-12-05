@@ -38,8 +38,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats
 from networkx.exception import NetworkXNotImplemented
-
-
+from network_info.network_metrics import calculate_network_metrics, print_network_metrics
 # Define US regions based on Census Bureau classifications
 # This grouping enables analysis of geographic patterns in healthcare approaches
 US_REGIONS = {
@@ -564,6 +563,10 @@ def main():
     visualize_network(G)
     analyze_balance_patterns(G)
     analyze_centrality(G)
+    
+    
+    metrics = calculate_network_metrics(G)
+    print_network_metrics(metrics, "Geographic Metrics")
 
 
 # Entry point for running the analysis

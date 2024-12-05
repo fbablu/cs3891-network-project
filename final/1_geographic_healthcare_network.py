@@ -29,6 +29,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import stats
+from network_info.network_metrics import calculate_network_metrics, print_network_metrics
 
 # Dictionary mapping states to their approximate geographic coordinates using Albers projection
 # Format: 'STATE': (x_coordinate, y_coordinate) where coordinates are normalized between 0 and 1
@@ -387,6 +388,10 @@ def main():
     print(f"Total number of connections: {G.number_of_edges()}")
     avg_balance = np.mean([d['balance_score'] for u, v, d in G.edges(data=True)])
     print(f"Average balance score across network: {avg_balance:.3f}")
+    
+    
+    metrics = calculate_network_metrics(G)
+    print_network_metrics(metrics, "Geographic Metrics")
 
 
 if __name__ == "__main__":
