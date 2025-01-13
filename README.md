@@ -1,5 +1,5 @@
-# Mapping Health: Healthcare Network Analysis Project
-*Analyzing Provider Distribution and Government Investment Across U.S. States, 2011–2013*
+# Mapping Health: Analyzing Provider Distribution and Government Investment Across U.S. States, 2011–2013
+*CS 3890 / Network Analysis in Healthcare with Dr. You Chen*
 
 ## Overview
 This project employs sophisticated network analysis techniques to examine the relationships between healthcare provider density and government spending across U.S. states. The analysis focuses on a critical period (2011-2013) coinciding with early Affordable Care Act (ACA) implementation, revealing complex patterns in healthcare resource distribution that transcend traditional geographic boundaries.
